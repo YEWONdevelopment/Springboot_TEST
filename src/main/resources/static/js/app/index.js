@@ -1,15 +1,15 @@
-const main = {
+var main = {
     init: function () {
-        const _this = this;
+        var _this = this;
         $('#btn-save').on('click', function () {
             _this.save();
         });
 
-        $('btn-update').on('click', function () {
+        $('#btn-update').on('click', function () {
             _this.update();
         });
 
-        $('btn-delete').on('click', function () {
+        $('#btn-delete').on('click', function () {
             _this.delete();
         });
     },
@@ -34,16 +34,16 @@ const main = {
     },
 
     update: function () {
-        const data = {
+        var data = {
             title: $('#title').val(),
             content: $('#content').val()
         };
 
-        const id = $('#id').val();
+        var id = $('#id').val();
 
         $.ajax({
             type: 'PUT',
-            url: '/api/v1/posts' + id,
+            url: '/api/v1/posts/' + id,
             dataType: 'json',
             contentType: 'application/json; charset-utf-8',
             data: JSON.stringify(data)
@@ -56,11 +56,11 @@ const main = {
     },
 
     delete: function () {
-        const id = $('#id').val();
+        var id = $('#id').val();
 
         $.ajax({
             type: 'DELETE',
-            url: '/api/v1/posts' + id,
+            url: '/api/v1/posts/' + id,
             dataType: 'json',
             contentType: 'application/json; charset-utf-8',
         }).done(function () {
